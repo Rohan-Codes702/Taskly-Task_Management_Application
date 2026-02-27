@@ -1,10 +1,8 @@
 @import 'tailwindcss';
 
-/* -------------------------------------------------------------------------- */
-/* 1. THEME DEFINITIONS                                                       */
-/* -------------------------------------------------------------------------- */
+ 
 @theme {
-  /* Custom Colors (Mapped to your dark mode design) */
+  
   --color-dark-primary: #0f172a;
   --color-dark-secondary: #1e293b;
   --color-dark-tertiary: #334155;
@@ -28,9 +26,7 @@
   --shadow-glow: 0 0 20px rgba(59, 130, 246, 0.3);
 }
 
-/* -------------------------------------------------------------------------- */
-/* 2. BASE STYLES                                                             */
-/* -------------------------------------------------------------------------- */
+
 @layer base {
   * {
     @apply border-gray-200 transition-colors duration-300 ease-in-out;
@@ -40,12 +36,10 @@
     @apply font-['Inter',_sans-serif] bg-gray-50 text-gray-800 antialiased;
   }
 
-  /* Dark Mode Body */
   .dark body {
     @apply bg-dark-primary text-dark-text;
   }
 
-  /* Fixed Nav Padding for Mobile - Compact */
   @media (max-width: 767px) {
     main, .min-h-screen {
       padding-bottom: 60px;
@@ -53,23 +47,20 @@
   }
 }
 
-/* -------------------------------------------------------------------------- */
-/* 3. COMPONENTS (Navigation & UI)                                            */
-/* -------------------------------------------------------------------------- */
+ 
 @layer components {
-  /* Mobile Bottom Bar - Compact */
+ 
   .mobile-nav {
     @apply fixed bottom-0 left-0 right-0 h-[50px] bg-white border-t flex justify-around items-center gap-2 z-50 shadow-[0_-2px_8px_rgba(0,0,0,0.05)] md:hidden;
     @apply dark:bg-dark-secondary dark:border-dark-border;
   }
 
-  /* Desktop Top Bar - Compact */
+  
   .desktop-nav {
     @apply hidden md:flex justify-between items-center sticky top-0 z-40 px-4 py-2 bg-white border-b shadow-[0_2px_8px_rgba(0,0,0,0.05)];
     @apply dark:bg-dark-secondary dark:border-dark-border;
   }
 
-  /* Navigation Items - Compact */
   .nav-item {
     @apply flex items-center justify-center p-2 text-gray-500 rounded-lg transition-all hover:text-indigo-600 hover:bg-indigo-50;
     @apply dark:text-dark-text-secondary dark:hover:text-dark-accent dark:hover:bg-dark-tertiary;
@@ -128,9 +119,6 @@
   }
 }
 
-/* -------------------------------------------------------------------------- */
-/* 4. KEYFRAMES & UTILITIES                                                   */
-/* -------------------------------------------------------------------------- */
 @keyframes fade-in {
   from { opacity: 0; }
   to { opacity: 1; }

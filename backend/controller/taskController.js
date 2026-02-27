@@ -1,6 +1,6 @@
 const Task = require('../models/Task');
 
-// Create Task
+
 exports.createTask = async (req, res) => {
   try {
     const { title, description, status } = req.body;
@@ -19,7 +19,6 @@ exports.createTask = async (req, res) => {
   }
 };
 
-// Get Tasks (with Pagination, Search, Filter)
 exports.getTasks = async (req, res) => {
   try {
     const { page = 1, limit = 10, status, search } = req.query;

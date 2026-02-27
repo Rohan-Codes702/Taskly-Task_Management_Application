@@ -2,7 +2,7 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const User = require('../models/User');
 
-// Generate JWT
+
 const generateToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: '30d' });
 };
@@ -60,8 +60,8 @@ exports.loginUser = async (req, res) => {
       
       res.cookie('token', token, {
         httpOnly: true,
-        secure: isProduction, // Use HTTPS in production
-        sameSite: isProduction ? 'none' : 'lax', // 'none' for cross-site (Vercel -> Render)
+        secure: isProduction, 
+        sameSite: isProduction ? 'none' : 'lax', 
         maxAge: 30 * 24 * 60 * 60 * 1000, // 30 days
       });
 
@@ -78,7 +78,6 @@ exports.loginUser = async (req, res) => {
   }
 };
 
-// Logout User
 exports.logoutUser = async (req, res) => {
   res.cookie('token', '', {
     httpOnly: true,
@@ -89,7 +88,7 @@ exports.logoutUser = async (req, res) => {
   res.status(200).json({ message: 'Logged out' });
 };
 
-// Get User Profile (Check Auth)
+
 exports.getMe = async (req, res) => {
   const user = {
     _id: req.user._id,
